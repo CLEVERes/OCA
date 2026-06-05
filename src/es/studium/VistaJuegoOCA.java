@@ -19,8 +19,10 @@ public class VistaJuegoOCA extends Frame
 
 	Image imgTablero = Toolkit.getDefaultToolkit().getImage("tablero.jpg");
 	Image imgJugador1 = Toolkit.getDefaultToolkit().getImage("jugador1.png");
+	Image dadoSeleccionado = Toolkit.getDefaultToolkit().getImage("dado6.png");;
 	
-	Image dadoSeleccionado = Toolkit.getDefaultToolkit().getImage("dado1.png");;
+	Button btnDado = new Button("Lanzar dado");
+	
 	
 	int posJ1 = 0;
 
@@ -82,18 +84,23 @@ public class VistaJuegoOCA extends Frame
 		}
 	};
 	
-	Button btnDado = new Button("Lanzar dado");
+	Label lblNombreJ1 = new Label("");
+	Label lblTiradasJ1 = new Label("Tiradas: 0");
+	
+	Panel pnl1 = new Panel();
+	Panel pnl2 = new Panel();
+	Panel pnl3 = new Panel();
 
 	Dialog dlgSalir = new Dialog(this, "Salir?", true);
 	Label lblDlgSalir = new Label("Deseas salir del juego?");
 	Button btnSiSalir = new Button("Si");
 	Button btnNoSalir = new Button("No");
-	Panel panelDlgSalir1 = new Panel();
-	Panel panelDlgSalir2 = new Panel();
+	Panel pnlDlgSalir1 = new Panel();
+	Panel pnlDlgSalir2 = new Panel();
 	
-	Dialog dlgOCA = new Dialog(this, "ENHORABUENA!!!", true);
-	Label lblDlgOCA = new Label("De OCA en OCA!!!");
-	Button btnContinuarOCA = new Button("Continuar");
+	Dialog dlgEvento = new Dialog(this, "", true);
+	Label lblDlgEvento = new Label("");
+	Button btnContinuarEvento = new Button("Continuar");
 	
 	Dialog dlgFin = new Dialog(this, "Partida finalizada", true);
 	Label lblDlgFin = new Label("Deseas jugar denuevo?");
@@ -130,10 +137,21 @@ public class VistaJuegoOCA extends Frame
 		add(pnlControles);
 		
 		// 3. Agregar el tablero
-		add(cnvTablero);
 		cnvTablero.setSize(800, 800);
-
-		setSize(860, 930);
+		pnl2.add(cnvTablero);
+		add(pnl2);
+		
+		lblNombreJ1.setFont(new Font("Arial", Font.BOLD, 16));
+		lblNombreJ1.setForeground(colorTexto);
+		pnl3.add(lblNombreJ1);
+		add(pnl3);
+		
+		lblTiradasJ1.setFont(new Font("Arial", Font.BOLD, 16));
+		lblTiradasJ1.setForeground(colorTexto);
+		pnl3.add(lblTiradasJ1);
+		add(pnl3);
+		
+		setSize(860, 1000);
 		setResizable(false);
 		setLocationRelativeTo(null);
 
@@ -156,11 +174,11 @@ public class VistaJuegoOCA extends Frame
 
 		btnSiSalir.setPreferredSize(new java.awt.Dimension(75,25));
 		btnNoSalir.setPreferredSize(new java.awt.Dimension(75,25));
-		panelDlgSalir1.add(lblDlgSalir);
-		dlgSalir.add(panelDlgSalir1);
-		panelDlgSalir2.add(btnSiSalir);
-		panelDlgSalir2.add(btnNoSalir);
-		dlgSalir.add(panelDlgSalir2);
+		pnlDlgSalir1.add(lblDlgSalir);
+		dlgSalir.add(pnlDlgSalir1);
+		pnlDlgSalir2.add(btnSiSalir);
+		pnlDlgSalir2.add(btnNoSalir);
+		dlgSalir.add(pnlDlgSalir2);
 
 		dlgSalir.setSize(250, 150);
 		dlgSalir.setResizable(false);
@@ -198,25 +216,25 @@ public class VistaJuegoOCA extends Frame
 		
 		//DLG de oca en oca
 		
-		dlgOCA.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
-		dlgOCA.setBackground(colorFondoDialogo);
+		dlgEvento.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
+		dlgEvento.setBackground(colorFondoDialogo);
 
-		lblDlgOCA.setFont(new Font("Arial", Font.BOLD, 14));
-		lblDlgOCA.setForeground(colorTexto);
+		lblDlgEvento.setFont(new Font("Arial", Font.BOLD, 14));
+		lblDlgEvento.setForeground(colorTexto);
 
-		btnContinuarOCA.setFont(new Font("Arial", Font.BOLD, 12));
-		btnContinuarOCA.setBackground(colorBotonAccion);
-		btnContinuarOCA.setForeground(colorTexto);
+		btnContinuarEvento.setFont(new Font("Arial", Font.BOLD, 12));
+		btnContinuarEvento.setBackground(colorBotonAccion);
+		btnContinuarEvento.setForeground(colorTexto);
 
-		btnContinuarOCA.setPreferredSize(new java.awt.Dimension(150,25));
+		btnContinuarEvento.setPreferredSize(new java.awt.Dimension(150,25));
 		
-		dlgOCA.add(lblDlgOCA);
-		dlgOCA.add(btnContinuarOCA);
+		dlgEvento.add(lblDlgEvento);
+		dlgEvento.add(btnContinuarEvento);
 
-		dlgOCA.setSize(250, 150);
-		dlgOCA.setResizable(false);
-		dlgOCA.setLocationRelativeTo(this);
-		dlgOCA.setVisible(false);
+		dlgEvento.setSize(250, 150);
+		dlgEvento.setResizable(false);
+		dlgEvento.setLocationRelativeTo(this);
+		dlgEvento.setVisible(false);
 
 		setVisible(true);
 	}

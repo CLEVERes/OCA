@@ -16,12 +16,14 @@ public class VistaInicioOCA extends Frame
 	// Componentes principales
 	Label lblInicio = new Label("¡¡¡ LA OCA !!!", Label.CENTER); // Centramos el texto
 	Button btnInicio = new Button("Iniciar Juego");
+	Button btnRanking = new Button("Ranking");
 	Button btnAyuda = new Button("Ayuda / Reglas");
 
 	// Paleta de colores "Gaming / Tablero"
 	Color colorFondo = new Color(44, 62, 80);      // Azul oscuro elegante
 	Color colorTexto = new Color(236, 240, 241);    // Blanco tiza moderno
 	Color colorBoton = new Color(39, 174, 96);     // Verde esmeralda para botones
+	Color colorBotonRanking = new Color(255, 155, 0); 
 	Color colorBotonAyuda = new Color(211, 84, 0); // Naranja para la ayuda
 
 	public VistaInicioOCA()
@@ -43,6 +45,10 @@ public class VistaInicioOCA extends Frame
 		btnInicio.setBackground(colorBoton);
 		btnInicio.setForeground(colorTexto);
 		
+		btnRanking.setFont(new Font("Arial", Font.BOLD, 14));
+		btnRanking.setBackground(colorBotonRanking);
+		btnRanking.setForeground(colorTexto);
+		
 		// 4. Estilo del Botón de Ayuda
 		btnAyuda.setFont(new Font("Arial", Font.BOLD, 14));
 		btnAyuda.setBackground(colorBotonAyuda);
@@ -62,8 +68,12 @@ public class VistaInicioOCA extends Frame
 		gbc.insets = new Insets(0, 0, 15, 0); // Margen de 15 píxeles abajo
 		add(btnInicio, gbc);
 
-		// Fila 2: Botón Ayuda
 		gbc.gridy = 2;
+		gbc.insets = new Insets(0, 0, 15, 0); // Margen de 15 píxeles abajo
+		add(btnRanking, gbc);
+		
+		// Fila 2: Botón Ayuda
+		gbc.gridy = 3;
 		gbc.insets = new Insets(0, 0, 0, 0);  // Sin margen abajo
 		add(btnAyuda, gbc);
 		

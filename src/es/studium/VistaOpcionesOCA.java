@@ -4,12 +4,15 @@ import java.awt.Button;
 import java.awt.Checkbox;
 import java.awt.CheckboxGroup;
 import java.awt.Color;
+import java.awt.Dialog;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Frame;
-import java.awt.Label;
 import java.awt.Insets;
+import java.awt.Label;
+import java.awt.TextField;
 
 public class VistaOpcionesOCA extends Frame
 {
@@ -30,7 +33,14 @@ public class VistaOpcionesOCA extends Frame
 	Color colorFondo = new Color(44, 62, 80);      // Azul oscuro
 	Color colorTexto = new Color(236, 240, 241);    // Blanco tiza
 	Color colorBotonJugar = new Color(39, 174, 96); // Verde esmeralda
+	
+	Dialog dlg = new Dialog(this, "Indica tu nombre", true);
+	Label lblDlg = new Label("¿Como te llamas?");
+	TextField txfDlg = new TextField(15);
+	Button btnContinuar = new Button("Continuar");
 
+	Color colorBotonAccion = new Color(39, 174, 96);
+	Color colorFondoDialogo = new Color(52, 73, 94);
 	public VistaOpcionesOCA() 
 	{
 		// 1. Configuración de la ventana
@@ -108,5 +118,28 @@ public class VistaOpcionesOCA extends Frame
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
+		
+		
+		
+		dlg.setLayout(new FlowLayout(FlowLayout.CENTER, 15, 15));
+		dlg.setBackground(colorFondoDialogo);
+
+		lblDlg.setFont(new Font("Arial", Font.BOLD, 14));
+		lblDlg.setForeground(colorTexto);
+
+		btnContinuar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnContinuar.setBackground(colorBotonAccion);
+		btnContinuar.setForeground(colorTexto);
+
+		btnContinuar.setPreferredSize(new java.awt.Dimension(150,25));
+		
+		dlg.add(lblDlg);
+		dlg.add(txfDlg);
+		dlg.add(btnContinuar);
+
+		dlg.setSize(250, 180);
+		dlg.setResizable(false);
+		dlg.setLocationRelativeTo(this);
+		dlg.setVisible(false);
 	}
 }
