@@ -35,7 +35,7 @@ public class VistaOpcionesOCA extends Frame
 	Color colorBotonJugar = new Color(39, 174, 96); // Verde esmeralda
 	
 	Dialog dlg = new Dialog(this, "Indica tu nombre", true);
-	Label lblDlg = new Label("¿Como te llamas?");
+	Label lblDlg = new Label("");
 	TextField txfDlg = new TextField(15);
 	Button btnContinuar = new Button("Continuar");
 

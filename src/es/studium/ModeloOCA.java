@@ -27,7 +27,8 @@ public class ModeloOCA
 		try
 		{
 			Class.forName(driver);
-		} catch (ClassNotFoundException cnfe)
+		} 
+		catch (ClassNotFoundException cnfe)
 		{
 			cnfe.printStackTrace();
 		}
@@ -48,12 +49,10 @@ public class ModeloOCA
 			preparedStatement.close();
 			connection.close();
 		} 
-		
 		catch (SQLException sqle)
 		{
 			sqle.printStackTrace();
 		}
-
 	}
 	
 	public ArrayList<String> consultarRanking()
@@ -77,7 +76,6 @@ public class ModeloOCA
 			statement.close();
 			connection.close();
 		} 
-		
 		catch (SQLException sqle)
 		{
 			sqle.printStackTrace();
